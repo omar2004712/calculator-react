@@ -1,3 +1,4 @@
+import './style/Result.css';
 import React from 'react';
 
 export default function Result(props) {
