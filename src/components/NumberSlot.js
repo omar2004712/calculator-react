@@ -14,8 +14,11 @@ class NumberSlot extends React.Component {
     <div>
       <input
         id={this.props.id}
-        value={this.state.value}
-        onChange={this.props.onChange}
+        value={this.state.value || 0}
+        onChange={(e) => {
+          this.setState({ value: Number(e.target.value || 0) });
+          this.props.onChange(e);
+        }}
       />
     </div>
   );

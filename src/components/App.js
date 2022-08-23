@@ -48,6 +48,11 @@ class App extends React.Component {
         defaultValue={0}
         onChange={this.onEquationChange}
       />
+      <NumberSlot
+        id="number2"
+        defaultValue={0}
+        onChange={this.onEquationChange}
+      />
     </div>
   );
 }
