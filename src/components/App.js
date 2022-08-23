@@ -12,7 +12,8 @@ class App extends React.Component {
   };
 
   onEquationChange = (e) => {
-    const update = { [e.target.id]: parseFloat(e.target.value) };
+    // fix NaN bug set 0 as default value
+    const update = { [e.target.id]: parseFloat(e.target.value || 0) };
 
     this.setState(update, this.operate);
   };
