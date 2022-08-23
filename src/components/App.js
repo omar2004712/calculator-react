@@ -1,6 +1,7 @@
 import React from 'react';
 import NumberSlot from './NumberSlot';
 import Result from './Result';
+import Operation from './Operation';
 
 // eslint-disable-next-line react/prefer-stateless-function
 class App extends React.Component {
@@ -13,8 +14,14 @@ class App extends React.Component {
   };
 
   onEquationChange = (e) => {
-    // fix NaN bug set 0 as default value
-    const update = { [e.target.id]: parseFloat(e.target.value || 0) };
+    const update = {};
+
+    if (e.target.id === 'operation') {
+      update[e.target.id] = e.target.value;
+    } else {
+      // fix NaN bug set 0 as default value
+      update[e.target.id] = parseFloat(e.target.value || 0);
+    }
 
     this.setState(update, this.operate);
   };
@@ -49,6 +56,7 @@ class App extends React.Component {
         defaultValue={0}
         onChange={this.onEquationChange}
       />
+      <Operation id="operation" onChange={this.onEquationChange} />
       <NumberSlot
         id="number2"
         defaultValue={0}
