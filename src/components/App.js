@@ -1,5 +1,6 @@
 import React from 'react';
 import NumberSlot from './NumberSlot';
+import Result from './Result';
 
 // eslint-disable-next-line react/prefer-stateless-function
 class App extends React.Component {
@@ -43,7 +44,6 @@ class App extends React.Component {
   // eslint-disable-next-line react/no-arrow-function-lifecycle
   render = () => (
     <div>
-      <div>{this.state.result}</div>
       <NumberSlot
         id="number1"
         defaultValue={0}
@@ -54,6 +54,7 @@ class App extends React.Component {
         defaultValue={0}
         onChange={this.onEquationChange}
       />
+      <Result value={this.state.result} />
     </div>
   );
 }
