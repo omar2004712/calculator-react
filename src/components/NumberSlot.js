@@ -1,10 +1,6 @@
 import './style/NumberSlot.css';
 import React from 'react';
 
-// export default function NumberSlot(props) {
-//   return <div>{props}</div>;
-// }
-
 // eslint-disable-next-line react/prefer-stateless-function
 class NumberSlot extends React.Component {
   // eslint-disable-next-line react/state-in-constructor
@@ -25,7 +21,7 @@ class NumberSlot extends React.Component {
         id={this.props.id}
         value={this.state.value || 0}
         onChange={(e) => {
-          this.setState({ value: Number(e.target.value || 0) });
+          this.setState({ value: parseFloat(e.target.value || 0) || 0 });
           this.props.onChange(e);
         }}
       />
